@@ -2,9 +2,6 @@ import cv2
 import numpy as np
 import tensorflow as tf
 
-# -------------------------
-# Load Model & Classes
-# -------------------------
 model = tf.keras.models.load_model("emotion_model.h5")
 
 class_names = {
@@ -19,9 +16,7 @@ class_names = {
 
 IMG_SIZE = (224, 224)
 
-# -------------------------
-# OpenCV Face Detection
-# -------------------------
+
 face_cascade = cv2.CascadeClassifier(cv2.data.haarcascades + "haarcascade_frontalface_default.xml")
 
 cap = cv2.VideoCapture(0)  # 0 = default webcam

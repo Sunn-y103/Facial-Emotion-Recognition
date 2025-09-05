@@ -2,13 +2,9 @@ import tensorflow as tf
 from tensorflow.keras import layers, models
 import os
 
-# -------------------------
-# Dataset paths
-# -------------------------
 train_dir = "DATASET/train"
 test_dir = "DATASET/test"
 
-# Map folder names (1–7) to emotion labels
 class_names = {
     "1": "Surprise",
     "2": "Fear",
@@ -19,13 +15,9 @@ class_names = {
     "7": "Neutral"
 }
 
-# Image size & batch
 IMG_SIZE = (224, 224)
 BATCH_SIZE = 32
 
-# -------------------------
-# Load Datasets
-# -------------------------
 train_ds = tf.keras.utils.image_dataset_from_directory(
     train_dir,
     labels="inferred",
@@ -49,15 +41,11 @@ normalization_layer = tf.keras.layers.Rescaling(1./255)
 train_ds = train_ds.map(lambda x, y: (normalization_layer(x), y))
 test_ds = test_ds.map(lambda x, y: (normalization_layer(x), y))
 
-# Prefetch for performance
 train_ds = train_ds.prefetch(buffer_size=tf.data.AUTOTUNE)
 test_ds = test_ds.prefetch(buffer_size=tf.data.AUTOTUNE)
 
 print("Class mapping:", class_names)
 
-# -------------------------
-# Build CNN Model
-# -------------------------
 num_classes = 7
 
 model = models.Sequential([
@@ -75,26 +63,17 @@ model = models.Sequential([
 
 model.summary()
 
-# -------------------------
-# Compile
-# -------------------------
 model.compile(
     optimizer='adam',
     loss='sparse_categorical_crossentropy',
     metrics=['accuracy']
 )
 
-# -------------------------
-# Train
-# -------------------------
 history = model.fit(
     train_ds,
     validation_data=test_ds,
     epochs=15
 )
 
-# -------------------------
-# Save Model
-# -------------------------
 model.save("emotion_model.h5")
 print("Model saved as emotion_model.h5")

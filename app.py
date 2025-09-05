@@ -5,9 +5,6 @@ import tensorflow as tf
 
 app = Flask(__name__)
 
-# -------------------------
-# Load Model & Classes
-# -------------------------
 model = tf.keras.models.load_model("emotion_model.h5")
 
 class_names = {
@@ -22,15 +19,10 @@ class_names = {
 
 IMG_SIZE = (224, 224)
 
-# -------------------------
-# OpenCV Face Detection
-# -------------------------
 face_cascade = cv2.CascadeClassifier(cv2.data.haarcascades + "haarcascade_frontalface_default.xml")
 cap = cv2.VideoCapture(0)  # default webcam
 
-# -------------------------
-# Generate Video Frames
-# -------------------------
+
 def generate_frames():
     while True:
         ret, frame = cap.read()
@@ -65,9 +57,7 @@ def generate_frames():
         yield (b'--frame\r\n'
                b'Content-Type: image/jpeg\r\n\r\n' + frame_bytes + b'\r\n')
 
-# -------------------------
-# Flask Routes
-# -------------------------
+
 @app.route('/')
 def index():
     return render_template('index.html')
@@ -77,8 +67,6 @@ def video():
     return Response(generate_frames(),
                     mimetype='multipart/x-mixed-replace; boundary=frame')
 
-# -------------------------
-# Run Flask App
-# -------------------------
+
 if __name__ == "__main__":
     app.run(debug=True)
