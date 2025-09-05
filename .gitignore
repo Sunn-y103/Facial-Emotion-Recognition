@@ -1,0 +1,22 @@
+# Ignore the trained model file
+emotion_model.h5
+
+# Ignore dataset folder
+dataset/
+
+# Ignore virtual environment
+venv/
+.venv/
+
+# Ignore all zip files (like DATASET.zip)
+*.zip
+
+# Ignore Python cache files
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Ignore system files
+.DS_Store
+Thumbs.db
