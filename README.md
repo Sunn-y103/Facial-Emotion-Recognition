@@ -6,14 +6,19 @@ It can detect human emotions from webcam video and display the predicted label l
 ---
 
 ## 📂 Project Structure
+
+```text
 .
-├── app.py # Flask app for running emotion detection in browser
-├── predict.py # Standalone script for real-time webcam prediction
-├── train.py # Training script for CNN model
-├── requirements.txt # Dependencies
-├── templates/
-│ └── index.html # Frontend for Flask app
-└── .gitignore
+├─ app.py
+├─ predict.py
+├─ train.py
+├─ requirements.txt
+├─ templates/
+│  └─ index.html
+├─ static/
+│  └─ (optional assets)
+└─ README.md
+```
 
 ## ✨ Features
 - Real-time face detection using OpenCV Haar Cascade  
@@ -36,11 +41,12 @@ It can detect human emotions from webcam video and display the predicted label l
    git clone https://github.com/<your-username>/<repo-name>.git
    cd <repo-name>
 2. Create and activate a virtual environment (recommended):
-   python -m venv venv
-   source venv/bin/activate    # Linux/Mac
-   venv\Scripts\activate       # Windows
+   - python -m venv venv
+   - source venv/bin/activate    # Linux/Mac
+   - venv\Scripts\activate       # Windows
 3. Install Dependencies:
-   pip install -r requirements.txt
+   - pip install -r requirements.txt
+   
 
 📥 Download Pre-trained Model
 
@@ -51,49 +57,70 @@ https://huggingface.co/Sunny6727/facialmodel1/resolve/main/emotion_model.h5
 After downloading, place the file in the project root folder: 
 emotion_model.h5
 
-🎥 Running Predictions
-Option 1: Flask Web App
-Run this command:
-python app.py
--Open your browser at http://127.0.0.1:5000/
--You’ll see live webcam predictions streamed via Flask.
 
-Option 2: Standalone Script
-Run this command on terminal:
-python predict.py
--An OpenCV window will open.
--Press q to quit.
+🎥 Running Predictions
+
+ Option 1: Flask Web App
+ 
+ Run this command:
+- python app.py
+- Open your browser at http://127.0.0.1:5000/
+- You’ll see live webcam predictions streamed via Flask.
+
+ Option 2: Standalone Script
+ 
+ Run this command on terminal:
+- python predict.py
+- An OpenCV window will open.
+- Press q to quit.
+
 
 🏋️ Training Your Own Model (Optional)
-If you want to train the model yourself:
+
+  If you want to train the model yourself:
 1. Prepare your dataset in the following structure:
-   DATASET/
-├── train/
-│   ├── 1/  # Surprise
-│   ├── 2/  # Fear
-│   ├── 3/  # Disgust
-│   ├── 4/  # Happiness
-│   ├── 5/  # Sadness
-│   ├── 6/  # Anger
-│   └── 7/  # Neutral
-└── test/
-    ├── 1/
-    ├── 2/
-    ...
+   ## 📂 Dataset Structure
+
+```text
+DATASET/
+├─ train/
+│  ├─ 1/  # Surprise
+│  ├─ 2/  # Fear
+│  ├─ 3/  # Disgust
+│  ├─ 4/  # Happiness
+│  ├─ 5/  # Sadness
+│  ├─ 6/  # Anger
+│  └─ 7/  # Neutral
+└─ test/
+   ├─ 1/
+   ├─ 2/
+   ├─ 3/
+   ├─ 4/
+   ├─ 5/
+   ├─ 6/
+   └─ 7/
+```
 2. Run:
-   -python train.py
+   - python train.py
 3. The trained model will be saved as:
-   -emotion_model.h5
+   - emotion_model.h5
 
 📦 Requirements
+
 See requirements.txt for dependencies.
+
 Main libraries:
-Flask
-TensorFlow
-NumPy
-OpenCV
+
+  Flask
+
+  TensorFlow
+
+  NumPy
+
+  OpenCV
+
 
 🚀 Future Improvements
--Add support for multiple faces simultaneously
--Deploy on cloud (Render, Heroku, etc.)
--Improve accuracy with transfer learning (e.g., MobileNet, ResNet)
+- Add support for multiple faces simultaneously
+- Deploy on cloud (Render, Heroku, etc.)
+- Improve accuracy with transfer learning (e.g., MobileNet, ResNet)
