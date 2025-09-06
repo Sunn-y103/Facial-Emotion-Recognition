@@ -15,8 +15,7 @@ It can detect human emotions from webcam video and display the predicted label l
 ├─ requirements.txt
 ├─ templates/
 │  └─ index.html
-├─ static/
-│  └─ (optional assets)
+├─ .gitignore
 └─ README.md
 ```
 
@@ -38,8 +37,8 @@ It can detect human emotions from webcam video and display the predicted label l
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/<your-username>/<repo-name>.git
-   cd <repo-name>
+   git clone https://github.com/Sunn-y103/Facial-Emotion-Recognition.git
+   cd Facial-Emotion-Recognition
 2. Create and activate a virtual environment (recommended):
    - python -m venv venv
    - source venv/bin/activate    # Linux/Mac
