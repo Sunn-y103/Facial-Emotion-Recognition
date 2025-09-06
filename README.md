@@ -1,3 +1,5 @@
+# Pretrained Dataset: [![Hugging Face Model](https://img.shields.io/badge/🤗%20Hugging%20Face-Model-blue)](https://huggingface.co/Sunny6727/facialmodel1)
+
 # Emotion Detection using Deep Learning 🎭
 
 A deep learning–based **real-time emotion detection system** built with **TensorFlow, OpenCV, NumPy, and Flask**.  
