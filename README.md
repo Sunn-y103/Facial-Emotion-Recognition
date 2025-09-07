@@ -59,16 +59,16 @@ After downloading, place the file in the project root folder:
 emotion_model.h5
 
 
-🎥 Running Predictions
+## 🎥 Running Predictions
 
- Option 1: Flask Web App
+ **Option 1: Flask Web App**
  
  Run this command:
 - python app.py
 - Open your browser at http://127.0.0.1:5000/
 - You’ll see live webcam predictions streamed via Flask.
 
- Option 2: Standalone Script
+ **Option 2: Standalone Script**
  
  Run this command on terminal:
 - python predict.py
@@ -76,11 +76,11 @@ emotion_model.h5
 - Press q to quit.
 
 
-🏋️ Training Your Own Model (Optional)
+## 🏋️ Training Your Own Model (Optional)
 
   If you want to train the model yourself:
 1. Prepare your dataset in the following structure:
-   ## 📂 Dataset Structure
+   **📂 Dataset Structure**
 
 ```text
 DATASET/
@@ -106,22 +106,13 @@ DATASET/
 3. The trained model will be saved as:
    - emotion_model.h5
 
-📦 Requirements
+## 📦 Requirements
 
 See requirements.txt for dependencies.
 
-Main libraries:
-
-  Flask
-
-  TensorFlow
-
-  NumPy
-
-  OpenCV
 
 
-🚀 Future Improvements
+## 🚀 Future Improvements
 - Add support for multiple faces simultaneously
 - Deploy on cloud (Render, Heroku, etc.)
 - Improve accuracy with transfer learning (e.g., MobileNet, ResNet)
